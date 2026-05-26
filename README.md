@@ -25,7 +25,7 @@ curl -fsSL https://raw.githubusercontent.com/vinay2007/anti-fingerprint-cli/mast
 Run in PowerShell:
 
 ```powershell
-iex (iwr 'https://raw.githubusercontent.com/vinay2007/anti-fingerprint-cli/master/install.ps1').Content
+iex (irm 'https://raw.githubusercontent.com/vinay2007/anti-fingerprint-cli/master/install.ps1')
 ```
 
 ## Usage
