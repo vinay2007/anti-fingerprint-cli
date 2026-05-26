@@ -174,12 +174,40 @@ program
   .command('uninstall')
   .description('Uninstall the tool and remove all data')
   .action(async () => {
+    const isWindows = process.platform === 'win32';
     const spinner = ora('Uninstalling...').start();
     try {
+      // 1. Remove local config/profile data
       const configDir = path.join(require('os').homedir(), '.anti-fingerprint');
-      await fs.remove(configDir);
+      if (fs.existsSync(configDir)) {
+        await fs.remove(configDir);
+      }
+      
+      // 2. Remove installation directory if it exists
+      const installDir = path.join(require('os').homedir(), '.anti-fingerprint-cli');
+      if (fs.existsSync(installDir)) {
+        // Note: On Windows, we can't easily remove the directory we are currently running from
+        // but we can try or give instructions.
+        try {
+          await fs.remove(installDir);
+        } catch (e) {
+          // Ignore error if directory is in use
+        }
+      }
+
       spinner.succeed('Successfully removed local configurations and browser data.');
-      logger.info('To complete uninstallation, remove the global npm package or binary.');
+      
+      console.log('\n' + boxen(chalk.yellow('Final Steps Required'), { padding: 1, borderStyle: 'round' }));
+      
+      if (isWindows) {
+        logger.info('To fully remove the global command, run:');
+        console.log(chalk.cyan('  npm uninstall -g anti-fingerprint'));
+      } else {
+        logger.info('To fully remove the global command, run:');
+        console.log(chalk.cyan('  sudo rm /usr/local/bin/anti-fingerprint'));
+        console.log(chalk.cyan(`  rm -rf ${installDir}`));
+      }
+      
     } catch (err) {
       spinner.fail('Uninstallation failed');
       logger.error(err.message);

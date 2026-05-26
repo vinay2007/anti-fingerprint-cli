@@ -57,6 +57,22 @@ Verify your protection against common fingerprinting sites:
 anti-fingerprint test
 ```
 
+## Uninstall
+
+### Linux & macOS
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/vinay2007/anti-fingerprint-cli/master/uninstall.sh | bash
+```
+
+### Windows
+
+Run in PowerShell:
+
+```powershell
+iex (irm 'https://raw.githubusercontent.com/vinay2007/anti-fingerprint-cli/master/uninstall.ps1')
+```
+
 ## Limitations
 
 * **Scope**: Protection is **ONLY** active within the browser window opened by the CLI. Your normal browser remains unprotected.
