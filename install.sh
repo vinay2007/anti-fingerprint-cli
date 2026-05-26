@@ -31,12 +31,12 @@ echo -e "${BLUE}Detected OS: ${MACHINE}${NC}"
 
 # Create installation directory
 INSTALL_DIR="$HOME/.anti-fingerprint-cli"
+rm -rf "$INSTALL_DIR"
 mkdir -p "$INSTALL_DIR"
 
-# Clone or Copy files (Assuming running from repo or downloaded)
-# For the curl installer, we would download the tarball/repo
-# For now, assume we are in the repo directory
-cp -r . "$INSTALL_DIR"
+# Clone repository
+echo -e "${BLUE}Downloading files from GitHub...${NC}"
+git clone --quiet https://github.com/vinay2007/anti-fingerprint-cli.git "$INSTALL_DIR"
 
 cd "$INSTALL_DIR"
 
@@ -60,4 +60,4 @@ echo "#  Anti-Fingerprint Installed Successfully!  #"
 echo "#                                           #"
 echo "#############################################"
 echo -e "${NC}"
-echo "Run 'anti-fingerprint start' to begin."
+echo "Run 'anti-fingerprint' to begin."

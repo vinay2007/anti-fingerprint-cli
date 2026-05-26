@@ -17,7 +17,7 @@ A globally installable CLI-based browser privacy protection tool.
 One-command installation for Linux and macOS:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/USERNAME/anti-fingerprint-cli/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/vinay2007/anti-fingerprint-cli/master/install.sh | bash
 ```
 
 ## Usage
