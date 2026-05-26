@@ -14,19 +14,23 @@ A globally installable CLI-based browser privacy protection tool.
 
 ## Installation
 
-### Linux & macOS (Bash)
+Requires [Node.js](https://nodejs.org/).
+
+### Global Install (All Platforms)
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/vinay2007/anti-fingerprint-cli/master/install.sh | bash
+npm install -g https://github.com/vinay2007/anti-fingerprint-cli
 ```
 
-### Windows (PowerShell)
+*Note: On Linux/macOS, you may need to use `sudo`.*
 
-Run as Administrator:
+### One-Command Setup (Optional)
 
-```powershell
-Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12; iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/vinay2007/anti-fingerprint-cli/master/install.ps1'))
-```
+If you want the installer to also download browser binaries automatically:
+
+**Linux/macOS:** `curl -fsSL https://raw.githubusercontent.com/vinay2007/anti-fingerprint-cli/master/install.sh | bash`
+
+**Windows:** `iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/vinay2007/anti-fingerprint-cli/master/install.ps1'))`
 
 ## Usage
 
