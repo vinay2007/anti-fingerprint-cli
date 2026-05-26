@@ -17,7 +17,7 @@
     "security",
     "cli"
   ],
-  "author": "",
+  "author": "vinay2007",
   "license": "MIT",
   "dependencies": {
     "chalk": "^4.1.2",

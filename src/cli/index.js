@@ -76,8 +76,18 @@ const startAction = async (options) => {
     logger.info('Press Ctrl+C to stop protection and close browser.');
 
     const page = await context.newPage();
-    await page.goto('https://check.anti-fingerprint.com');
-
+    await page.goto('about:blank');
+    await page.evaluate(() => {
+      document.body.style.backgroundColor = '#0a0a0a';
+      document.body.style.color = 'white';
+      document.body.style.fontFamily = 'sans-serif';
+      document.body.style.display = 'flex';
+      document.body.style.justifyContent = 'center';
+      document.body.style.alignItems = 'center';
+      document.body.style.height = '100vh';
+      document.body.style.margin = '0';
+      document.body.innerHTML = '<div><h1>Anti-Fingerprint Protection Active</h1><p style="text-align:center">Your privacy is now protected. Browse normally.</p></div>';
+    });
     process.on('SIGINT', async () => {
       logger.info('Stopping protection...');
       await context.close();
