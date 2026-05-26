@@ -14,10 +14,18 @@ A globally installable CLI-based browser privacy protection tool.
 
 ## Installation
 
-One-command installation for Linux and macOS:
+### Linux & macOS (Bash)
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/vinay2007/anti-fingerprint-cli/master/install.sh | bash
+```
+
+### Windows (PowerShell)
+
+Run as Administrator:
+
+```powershell
+Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12; iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/vinay2007/anti-fingerprint-cli/master/install.ps1'))
 ```
 
 ## Usage
